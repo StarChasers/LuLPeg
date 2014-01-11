@@ -12,9 +12,9 @@
 local _ENV,       loaded, packages, release, require_ 
     = _ENV or _G, {},     {},       true,    require
 
-require = function(lib)
+require_ = function(lib)
     apiloader.load(lib)
-    return _G[lib}
+    return _G[lib]
 end
 
 local function require(...)
