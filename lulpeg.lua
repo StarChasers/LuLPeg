@@ -13,7 +13,9 @@ local _ENV,       loaded, packages, release, require_
     = _ENV or _G, {},     {},       true,    require
 
 require_ = function(lib)
-    apiloader.load(lib)
+    if _G[lib] == nil then
+        apiloader.load(lib)
+    end
     return _G[lib]
 end
 
