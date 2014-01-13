@@ -9,6 +9,10 @@
 -- 
 -- The re.lua module and the test suite (tests/lpeg.*.*.tests.lua)
 -- are part of the original LPeg distribution.
+
+_VERSION = "Lua 5.1" --FIX
+
+
 local _ENV,       loaded, packages, release, require_ 
     = _ENV or _G, {},     {},       true,    require
 
@@ -591,6 +595,9 @@ local byteset_new, isboolset, isbyteset
 local byteset_mt = {}
 local
 function byteset_constructor (upper)
+    if upper < 0 then
+        upper = 0
+    end
     local set = setmetatable(load(t_concat{
         "return{ [0]=false",
         (", false"):rep(upper),
